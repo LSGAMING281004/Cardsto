@@ -1,4 +1,3 @@
-/* ===== REPLICATING LEETCODE DESIGN SYSTEM ===== */
 
 :root {
   --bg-color: #ffffff;
@@ -23,8 +22,10 @@ body {
   background-color: var(--bg-color);
   color: var(--text-secondary);
   line-height: 1.6;
-  font-size: 17px;
+  font-size: clamp(14px, 2.5vw, 17px);
   -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: transparent;
+  text-rendering: optimizeLegibility;
 }
 
 /* ===== HEADER ===== */
@@ -33,7 +34,7 @@ body {
   border-bottom: 1px solid var(--border-color);
   display: flex;
   align-items: center;
-  padding: 0 55px;
+  padding: 0 clamp(10px, 5vw, 55px);
   position: sticky;
   top: 0;
   background: var(--header-bg);
@@ -56,7 +57,7 @@ body {
 }
 
 .logo img {
-  height: 34px;
+  height: clamp(24px, 5vw, 34px);
   width: auto;
   border-radius: 4px;
 }
@@ -64,7 +65,7 @@ body {
 .logo-text {
   font-weight: 800;
   color: var(--text-primary);
-  font-size: 22px;
+  font-size: clamp(16px, 4vw, 22px);
   letter-spacing: -0.03em;
 }
 
@@ -72,64 +73,70 @@ body {
 .container {
   max-width: var(--max-width);
   margin: 0 auto;
-  padding: 40px 10px 100px 50px; /* Increased left padding for nesting */
+  padding: clamp(20px, 5vw, 40px) clamp(15px, 3vw, 10px) clamp(60px, 10vw, 100px) clamp(15px, 5vw, 50px);
+  width: 100%;
+  box-sizing: border-box;
 }
 
 .title-section {
   text-align: left;
-  margin-bottom: 20px;
+  margin-bottom: clamp(15px, 3vw, 20px);
   border-bottom: 1px solid var(--border-color);
-  padding-bottom: 20px;
+  padding-bottom: clamp(15px, 3vw, 20px);
 }
 
 .title-section h1 {
-  font-size: 40px;
+  font-size: clamp(18px, 6vw, 40px);
   font-weight: 400;
-  margin-left: -40px; /* Pull back to the left */
-  /* Light weight for the first part */
+  margin-left: clamp(-20px, -5vw, -40px);
   color: var(--text-primary);
+  word-wrap: break-word;
 }
 
 .title-section h1 strong {
   font-weight: 600;
-  /* Bold weight for the second part */
 }
 
 .last-updated {
-  font-size: 13px;
+  font-size: clamp(11px, 2vw, 13px);
   color: var(--text-muted);
-  margin-top: 10px;
+  margin-top: clamp(8px, 1.5vw, 10px);
 }
 
 /* ===== DOCUMENT CONTENT ===== */
 .content h2 {
-  font-size: 28px;
+  font-size: clamp(16px, 4.5vw, 28px);
   font-weight: 600;
   color: var(--text-primary);
-  margin: 48px 0 12px -40px; /* Pull back to the left */
+  margin: clamp(24px, 5vw, 48px) 0 clamp(8px, 2vw, 12px) clamp(-20px, -5vw, -40px);
   text-transform: none;
-  /* LeetCode uses mixed case in many sections, but I will make it clean */
-}
-
-.content h3 {
-  font-size: 25px;
-  font-weight: 600;
-  color: var(--text-primary);
-  margin: 32px 0 8px -20px; /* Partial indent for sub-headers */
-}
-
-.content p {
-  margin-bottom: 10px;
   word-wrap: break-word;
 }
 
+.content h3 {
+  font-size: clamp(14px, 3.5vw, 25px);
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: clamp(16px, 3vw, 32px) 0 clamp(6px, 1.5vw, 8px) clamp(-10px, -3vw, -20px);
+  word-wrap: break-word;
+}
+
+.content p {
+  margin-bottom: clamp(8px, 1.5vw, 10px);
+  word-wrap: break-word;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
 .content ul {
-  margin-bottom: 10px;
-  padding-left: 24px;
+  margin-bottom: clamp(8px, 1.5vw, 10px);
+  padding-left: clamp(16px, 3vw, 24px);
 }
 
 .content li {
-  margin-bottom: 4px;
+  margin-bottom: clamp(3px, 0.8vw, 4px);
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 .content strong {
@@ -139,45 +146,317 @@ body {
 .content a {
   color: var(--link-color);
   text-decoration: none;
+  word-wrap: break-word;
 }
 
 .content a:hover {
   text-decoration: underline;
 }
 
+.content a:focus {
+  outline: 2px solid var(--link-color);
+  outline-offset: 2px;
+}
+
 /* ===== BOX STYLE (For special content) ===== */
 .info-box {
   background: #f8f8f8;
   border-radius: 4px;
-  padding: 20px;
-  margin: 20px 0;
-  border-left: 4px solid #ddd;
+  padding: clamp(15px, 3vw, 20px);
+  margin: clamp(15px, 2vw, 20px) 0;
+  border-left: clamp(3px, 0.5vw, 4px) solid #ddd;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 /* ===== FOOTER ===== */
 .footer {
   border-top: 1px solid var(--border-color);
-  padding: 30px 0;
+  padding: clamp(20px, 3vw, 30px) clamp(15px, 3vw, 50px);
   text-align: center;
-  font-size: 13px;
+  font-size: clamp(11px, 2vw, 13px);
   color: var(--text-muted);
 }
 
 /* ===== RESPONSIVE ===== */
-@media (max-width: 768px) {
+
+/* ===== MOBILE DEVICES (320px - 480px) ===== */
+@media (max-width: 480px) {
+  body {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
   .header {
+    height: 48px;
     padding: 0 10px;
+  }
+
+  .logo img {
+    height: 28px;
+  }
+
+  .logo-text {
+    font-size: 18px;
+    letter-spacing: -0.02em;
+  }
+
+  .container {
+    padding: 20px 15px 60px 15px;
+    margin: 0;
+  }
+
+  .title-section {
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+  }
+
+  .title-section h1 {
+    font-size: 18px;
+    margin: 0;
+    font-weight: 500;
+  }
+
+  .title-section h1 strong {
+    font-weight: 700;
+  }
+
+  .last-updated {
+    font-size: 12px;
+    margin-top: 8px;
+  }
+
+  .content h2 {
+    font-size: 16px;
+    margin: 24px 0 10px 0;
+  }
+
+  .content h3 {
+    font-size: 14px;
+    margin: 16px 0 8px 0;
+  }
+
+  .content p {
+    margin-bottom: 8px;
+    word-wrap: break-word;
+    word-break: break-word;
+  }
+
+  .content ul {
+    margin-bottom: 8px;
+    padding-left: 20px;
+  }
+
+  .content li {
+    margin-bottom: 4px;
+    font-size: 14px;
+  }
+
+  .info-box {
+    padding: 15px;
+    margin: 15px 0;
+    border-left: 3px solid #ddd;
+    font-size: 14px;
+  }
+
+  .footer {
+    padding: 20px 15px;
+    font-size: 12px;
+  }
+}
+
+/* ===== SMALL TABLETS (481px - 640px) ===== */
+@media (min-width: 481px) and (max-width: 640px) {
+  body {
+    font-size: 15px;
+  }
+
+  .header {
+    height: 50px;
+    padding: 0 15px;
+  }
+
+  .container {
+    padding: 25px 15px 60px 15px;
+  }
+
+  .title-section h1 {
+    font-size: 22px;
+    margin: 0;
+  }
+
+  .content h2 {
+    font-size: 18px;
+    margin: 28px 0 10px 0;
+  }
+
+  .content h3 {
+    font-size: 16px;
+    margin: 18px 0 8px 0;
+  }
+
+  .info-box {
+    padding: 16px;
+    margin: 16px 0;
+  }
+}
+
+/* ===== TABLETS (641px - 768px) ===== */
+@media (min-width: 641px) and (max-width: 768px) {
+  body {
+    font-size: 16px;
+  }
+
+  .header {
+    padding: 0 20px;
   }
 
   .container {
     padding: 30px 20px 60px 20px;
+    max-width: 100%;
   }
 
   .title-section h1 {
-    font-size: 24px;
+    font-size: 26px;
+    margin: 0;
   }
 
   .content h2 {
     font-size: 20px;
+    margin: 32px 0 12px 0;
+  }
+
+  .content h3 {
+    font-size: 18px;
+    margin: 20px 0 8px 0;
+  }
+
+  .info-box {
+    padding: 18px;
+    margin: 18px 0;
+  }
+}
+
+/* ===== LARGE TABLETS & SMALL LAPTOPS (769px - 1024px) ===== */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .header {
+    padding: 0 30px;
+  }
+
+  .container {
+    padding: 35px 30px 80px 40px;
+    max-width: 100%;
+  }
+
+  .title-section h1 {
+    font-size: 32px;
+    margin-left: -30px;
+  }
+
+  .content h2 {
+    font-size: 24px;
+    margin-left: -30px;
+  }
+
+  .content h3 {
+    font-size: 20px;
+    margin-left: -15px;
+  }
+}
+
+/* ===== DESKTOPS (1025px and above) ===== */
+@media (min-width: 1025px) {
+  .header {
+    padding: 0 55px;
+  }
+
+  .container {
+    padding: 40px 10px 100px 50px;
+  }
+
+  .title-section h1 {
+    margin-left: -40px;
+  }
+
+  .content h2 {
+    margin-left: -40px;
+  }
+
+  .content h3 {
+    margin-left: -20px;
+  }
+}
+
+/* ===== ULTRA-WIDE SCREENS (1441px and above) ===== */
+@media (min-width: 1441px) {
+  :root {
+    --max-width: 1200px;
+  }
+
+  body {
+    font-size: 18px;
+  }
+
+  .container {
+    padding: 50px 20px 120px 70px;
+  }
+
+  .title-section h1 {
+    font-size: 44px;
+  }
+
+  .content h2 {
+    font-size: 32px;
+  }
+
+  .content h3 {
+    font-size: 26px;
+  }
+}
+
+/* ===== LANDSCAPE MODE ADJUSTMENTS ===== */
+@media (max-height: 500px) {
+  .header {
+    height: 45px;
+  }
+
+  .container {
+    padding-top: 20px;
+    padding-bottom: 40px;
+  }
+
+  .title-section {
+    margin-bottom: 10px;
+    padding-bottom: 10px;
+  }
+}
+
+/* ===== ACCESSIBILITY: HIGH CONTRAST MODE ===== */
+@media (prefers-contrast: more) {
+  :root {
+    --text-primary: rgba(0, 0, 0, 1);
+    --text-secondary: rgba(0, 0, 0, 0.8);
+    --text-muted: rgba(0, 0, 0, 0.6);
+  }
+}
+
+/* ===== ACCESSIBILITY: REDUCED MOTION ===== */
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ===== TOUCH DEVICE IMPROVEMENTS ===== */
+@media (hover: none) and (pointer: coarse) {
+  .content a {
+    padding: 8px 4px;
+    display: inline-block;
+  }
+
+  .content a:active {
+    background-color: rgba(0, 122, 255, 0.1);
   }
 }
